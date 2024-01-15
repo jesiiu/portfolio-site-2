@@ -21,6 +21,7 @@
           </p>
         </div>
         <div class="me-right">
+          <div class="work-list-bg"></div>
           <ul class="work-list">
             <li class="work-list-element">
               <span class="list-element"
@@ -84,11 +85,30 @@ $border-color: #a0a0a0;
   padding: 3rem;
   flex: 6;
   flex-wrap: nowrap;
+  position: relative;
+}
+.me-left::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  box-shadow: 0px 0px 500px 10px #ffd60a;
+  left: -140px;
+}
+.me-left::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 0px;
+  box-shadow: 0px 0px 500px 25px #e44608;
+  overflow: hidden;
+  right: 100px;
 }
 .me-left-title {
   width: 100%;
   border-bottom: 1px solid $border-color;
   padding-bottom: 0.8rem;
+  font-weight: 600;
 }
 .me-left-text {
   padding-top: 1rem;
@@ -101,6 +121,20 @@ $border-color: #a0a0a0;
   flex: 4;
   align-items: center;
   gap: 5rem;
+  position: relative;
+  background: transparent;
+}
+.work-list-bg {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  // background: radial-gradient(
+  //   ellipse at right,
+  //   rgba(57, 17, 129, 0.8) 0%,
+  //   rgba(57, 17, 129, 0) 70%
+  // );
+  box-shadow: 200px 170px 200px 80px rgb(57, 17, 129);
 }
 li {
   position: relative;

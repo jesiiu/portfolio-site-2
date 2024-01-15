@@ -1,11 +1,15 @@
 <script setup>
 import AboutSection from './components/about-section/AboutSection.vue'
 import DescriptionSection from './components/description-section/DescriptionSection.vue'
+import TechStackSection from './components/techstack-section/TechstackSection.vue'
+import PortfolioSection from './components/portfolio-section/PortfolioSection.vue'
 </script>
 
 <template>
   <AboutSection />
   <DescriptionSection />
+  <TechStackSection />
+  <PortfolioSection />
 </template>
 
 <style lang="scss">
