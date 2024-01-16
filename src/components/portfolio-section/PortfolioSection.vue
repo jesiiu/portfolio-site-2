@@ -1,93 +1,43 @@
 <script setup></script>
 <template>
-  <section class="portfolio__container">
+  <section class="portfolio__container container-xl">
     <div class="portfolio__content">
       <h5>Moje prace</h5>
       <h2>Portfolio</h2>
       <div class="portfolio__elements">
-        <div class="portfolio__element">
+        <div
+          class="portfolio__element"
+          v-for="(project, projectIndex) in projects"
+          :key="projectIndex"
+        >
           <span class="element-title"
-            >OrdersHub <v-icon name="io-logo-github" id="github-icon" scale="2"
+            >{{ project.title }} <v-icon name="io-logo-github" id="github-icon" scale="2"
           /></span>
           <div class="element-description">
-            <p class="description-text">
-              Aplikacja agregująca zamówienia pobierane z różnych platform sprzedażowych, w tym z
-              Baselinkera. Pozwala to na optymalizację czasu realizacji zamówienia co z kolei
-              przekłada się na lepsze opinie oraz zwiększenie sprzedaży. Aplikacja umożliwia
-              podpięcie kilku magazynów przez które zamówienia mogą obsługiwane (na przykład kilka
-              sklepów), zarezerwować zamówienie przez wybrany magazyn, tworzyć dokument sprzedażowy,
-              pobrać etykietę wysyłkową dla zamówienia oraz zmienić status obsługi na platformie.
-            </p>
+            <p class="description-text">{{ project.description }}</p>
             <div class="elements-stack">
               <div class="grid-element"><span>Tech Stack</span></div>
-              <div class="grid-element"><small>Vue</small></div>
-              <div class="grid-element"><small>Laravel</small></div>
-              <div class="grid-element"><small>PostgreSQL</small></div>
-              <div class="grid-element"><small>RestAPI</small></div>
-              <div class="grid-element"><small>Nginx</small></div>
+              <div
+                class="grid-element"
+                v-for="(tech, techIndex) in project.techstack"
+                :key="techIndex"
+              >
+                <small>{{ tech.name }}</small>
+              </div>
             </div>
           </div>
         </div>
         <div class="portfolio__element">
           <span class="element-title"
-            >Chatbot AI/ML<v-icon name="io-logo-github" id="github-icon" scale="2"
+            >Mniejsze projekty<v-icon name="io-logo-github" id="github-icon" scale="2"
           /></span>
           <div class="element-description">
             <p class="description-text">
-              Aplikacja utworzona na potrzeby projektu dyplomowego - pracy inżynierskiej. Model SI
-              Chatbota został dostarczony przez bibliotekę PyTorch, która została odpowiednio
-              skonfigurowana pod wymagania projektu. Model był uczony poprzez nadzorowane uczenie
-              maszynowe zbiorem treningowym, który zawierał zestaw pytań oraz odpowiedzi w
-              zależności od intencji związanych z działalnością e-commerce. Chatbot został
-              umieszczony na serwerze zdalnym w postaci aplikacji która posiadała endpoint REST API,
-              pozwalający na przesłanie zapytania użytkownika i uzyskania odpowedzi od Chatbota.
-            </p>
-            <div class="elements-stack">
-              <div class="grid-element"><span>Tech Stack</span></div>
-              <div class="grid-element"><small>Python</small></div>
-              <div class="grid-element"><small>Flask</small></div>
-              <div class="grid-element"><small>SQLite</small></div>
-              <div class="grid-element"><small>JS</small></div>
-              <div class="grid-element"><small>Nginx</small></div>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio__element">
-          <span class="element-title"
-            >Integracje ERP<v-icon name="io-logo-github" id="github-icon" scale="2"
-          /></span>
-          <div class="element-description">
-            <p class="description-text">
-              Aplikacje przeznaczone do wymiany danych o produktach wraz z opisami, znajdujących się
-              w systemie ERP, z platformami e-commerce w celu możliwości wystawienia aukcji
-              sprzedażowych, aktualizacji cen oraz stanu magazynowego. Komunikacja odbywa się
-              poprzez pobranie danych z bazy danych MSSQL lub PGSQL a następnie wysłanie ich przy
-              użyciu dostarczonego przez target docelowy interfejsu API, ewentualnie poprzez plik
-              JSON/XML/CSV.
-            </p>
-            <div class="elements-stack">
-              <div class="grid-element"><span>Tech Stack</span></div>
-              <div class="grid-element"><small>Python</small></div>
-              <div class="grid-element"><small>VUE</small></div>
-              <div class="grid-element"><small>C#</small></div>
-              <div class="grid-element"><small>Laravel</small></div>
-              <div class="grid-element"><small>MSSQL</small></div>
-              <div class="grid-element"><small>PGSQl</small></div>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio__element">
-          <span class="element-title"
-            >Integracje ERP<v-icon name="io-logo-github" id="github-icon" scale="2"
-          /></span>
-          <div class="element-description">
-            <p class="description-text">
-              Aplikacje przeznaczone do wymiany danych o produktach wraz z opisami, znajdujących się
-              w systemie ERP, z platformami e-commerce w celu możliwości wystawienia aukcji
-              sprzedażowych, aktualizacji cen oraz stanu magazynowego. Komunikacja odbywa się
-              poprzez pobranie danych z bazy danych MSSQL lub PGSQL a następnie wysłanie ich przy
-              użyciu dostarczonego przez target docelowy interfejsu API, ewentualnie poprzez plik
-              JSON/XML/CSV.
+              Aplikacje optymalizujące procesy biznesowe oraz ułatwiające pracę pracownikom firmy.
+              Ich działanie skupione jest na zmniejszeniu ilości wymaganych kroków do wykonania
+              danego działania a dodatkowo eliminowanie powtarzania zbędnych czynności oraz
+              wykluczanie błedów co docelowo pozwalan na większą automatyzację dzięki czemu zwiększa
+              się efektywnośc pracy.
             </p>
             <div class="elements-stack">
               <div class="grid-element">
@@ -108,7 +58,6 @@
 </template>
 <style lang="scss">
 .portfolio__container {
-  width: 100%;
   height: 100%;
   padding-top: 5rem;
 }
@@ -117,7 +66,6 @@
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 5rem;
   flex-direction: column;
   align-items: center;
   h5 {
@@ -136,10 +84,10 @@
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
-  padding: 3rem;
   margin-top: 2rem;
   position: relative;
   gap: 5rem;
+  padding: 4rem 2rem;
 }
 .portfolio__element {
   height: max-content;
@@ -207,4 +155,153 @@
 #github-icon:hover {
   transform: translateY(-5px);
 }
+@media screen and (max-width: 680px) {
+  .element-title {
+    text-align: center;
+  }
+  .element-description {
+    flex-direction: column;
+  }
+  .portfolio__element:nth-child(odd) {
+    text-align: left;
+    .grid-element:not(:first-child)::after {
+      display: none;
+    }
+    .grid-element:not(:first-child)::before {
+      content: '';
+      background: rgb(236, 236, 236);
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      border-radius: 30px;
+      margin-top: 10px;
+      margin-left: -16px;
+      box-shadow: -10px 0px 50px 2px #c7c7c7;
+    }
+  }
+  .portfolio__element:nth-child(even) {
+    text-align: right;
+  }
+  .elements-stack {
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>
+<script>
+export default {
+  data() {
+    return {
+      projects: [
+        {
+          title: `OrdersHub`,
+          description: ` Aplikacja utworzona na potrzeby projektu dyplomowego - pracy inżynierskiej. Model SI
+              Chatbota został dostarczony przez bibliotekę PyTorch, która została odpowiednio
+              skonfigurowana pod wymagania projektu. Model był uczony poprzez nadzorowane uczenie
+              maszynowe zbiorem treningowym, który zawierał zestaw pytań oraz odpowiedzi w
+              zależności od intencji związanych z działalnością e-commerce. Chatbot został
+              umieszczony na serwerze zdalnym w postaci aplikacji która posiadała endpoint REST API,
+              pozwalający na przesłanie zapytania użytkownika i uzyskania odpowedzi od Chatbota.`,
+          techstack: [
+            {
+              name: `Vue`
+            },
+            {
+              name: `Laravel`
+            },
+            {
+              name: `PostgreSQL`
+            },
+            {
+              name: `JS`
+            },
+            {
+              name: `Nginx`
+            }
+          ]
+        },
+        {
+          title: `Chatbot AI/ML`,
+          description: `Aplikacja agregująca zamówienia pobierane z różnych platform sprzedażowych, w tym z
+              Baselinkera. Pozwala to na optymalizację czasu realizacji zamówienia co z kolei
+              przekłada się na lepsze opinie oraz zwiększenie sprzedaży. Aplikacja umożliwia
+              podpięcie kilku magazynów przez które zamówienia mogą obsługiwane (na przykład kilka
+              sklepów), zarezerwować zamówienie przez wybrany magazyn, tworzyć dokument sprzedażowy,
+              pobrać etykietę wysyłkową dla zamówienia oraz zmienić status obsługi na platformie.`,
+          techstack: [
+            {
+              name: `Python`
+            },
+            {
+              name: `Flask`
+            },
+            {
+              name: `SQLite`
+            },
+            {
+              name: `RestAPI`
+            },
+            {
+              name: `Nginx`
+            }
+          ]
+        },
+        {
+          title: `Integracje ERP`,
+          description: `Aplikacje przeznaczone do wymiany danych o produktach wraz z opisami, znajdujących się
+              w systemie ERP, z platformami e-commerce w celu możliwości wystawienia aukcji
+              sprzedażowych, aktualizacji cen oraz stanu magazynowego. Komunikacja odbywa się
+              poprzez pobranie danych z bazy danych MSSQL lub PGSQL a następnie wysłanie ich przy
+              użyciu dostarczonego przez target docelowy interfejsu API, ewentualnie poprzez plik
+              JSON/XML/CSV.`,
+          techstack: [
+            {
+              name: `Python`
+            },
+            {
+              name: `C#`
+            },
+            {
+              name: `NodeJS`
+            },
+            {
+              name: `ElectronJS`
+            },
+            {
+              name: `MSSQL`
+            },
+            {
+              name: `PGSQl`
+            }
+          ]
+        },
+        {
+          title: `Mniejsze projekty`,
+          description: `Aplikacje optymalizujące procesy biznesowe oraz ułatwiające pracę pracownikom firmy.
+              Ich działanie skupione jest na zmniejszeniu ilości wymaganych kroków do wykonania
+              danego działania a dodatkowo eliminowanie powtarzania zbędnych czynności oraz
+              wykluczanie błedów co docelowo pozwalan na większą automatyzację dzięki czemu zwiększa
+              się efektywnośc pracy.`,
+          techstack: [
+            {
+              name: `Python`
+            },
+            {
+              name: `C#`
+            },
+            {
+              name: `REST/SOAP`
+            },
+            {
+              name: `MSSQL`
+            },
+            {
+              name: `PGSQl`
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+</script>

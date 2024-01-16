@@ -44,8 +44,31 @@ body {
   width: 100%;
   display: block;
 }
+.container-xl {
+  width: 1260px;
+  margin: 0 auto;
+}
+.container-l {
+  width: 960px;
+  margin: 0 auto;
+}
 span {
   font-family: 'Poppins', sans-serif;
+}
+@media screen and (max-width: 1400px) {
+  .container-xl {
+    width: 960px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .container-xl {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1260px) {
+  .container-l {
+    width: 100%;
+  }
 }
 </style>
 

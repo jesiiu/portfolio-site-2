@@ -1,29 +1,17 @@
 <script setup></script>
 
 <template>
-  <section class="description__container">
+  <section class="description__container container-xl">
     <div class="description__content">
       <div class="description-me">
         <div class="me-left">
           <h1 class="me-left-title">O mnie</h1>
-          <p class="me-left-text">
-            👋 Cześć, <br /><br />🎓 Jestem absolwentem Uniwersytetu Merito w Poznaniu, gdzie
-            zdobyłem tytuł inżyniera informatyki ze specjalizacją w e-commerce. <br />💼 Aktualnie
-            rozwijam swoją karierę w firmie e-commerce, gdzie pełnię rolę twórcy oprogramowania do
-            integracji firmowego systemu ERP z popularnymi marketplace'ami, takimi jak Pigu,
-            Allegro, a także z platformami e-commerce, głównie Prestashop, oraz narzędziem
-            Baselinker. <br />🚀 Poza tworzeniem aplikacji integrujących systemy zajmuje się również
-            usprawnieniem oraz optymalizacją procesów biznesowych oraz ich automatyzacją. <br />🛠️
-            Stawiam na ciągły rozwój, aby być na bieżąco z najnowszymi trendami w technologii.
-            <br />💡 Posiadam solidne umiejętności programistyczne oraz doświadczenie pozwalają mi
-            skutecznie realizować projekty związane z rozwijaniem funkcjonalności oraz
-            dostosowywaniem systemów do aktualnych potrzeb rynkowych.
-          </p>
+          <p class="me-left-text" v-html="description_text"></p>
         </div>
         <div class="me-right">
           <div class="work-list-bg"></div>
           <ul class="work-list">
-            <li class="work-list-element">
+            <!-- <li class="work-list-element">
               <span class="list-element"
                 ><em
                   >Developer - Mastersport Sp. z o. o. <br />
@@ -47,6 +35,12 @@
                   Administracja serwera firmy <br />
                   Help Desk <br /> </small
               ></span>
+            </li> -->
+            <li v-for="(work, workIndex) in worklist" :key="workIndex" class="work-list-element">
+              <span class="list-element">
+                <em v-html="work.title"></em><br />
+                <small v-html="work.description"></small>
+              </span>
             </li>
           </ul>
         </div>
@@ -59,30 +53,29 @@
 $list-bar-color: #a0a0a0;
 $border-color: #a0a0a0;
 .description__container {
-  width: 100%;
   height: 100vh;
-  display: block;
+  padding: 1rem;
 }
 .description__content {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem;
 }
 .description-me {
   width: 100%;
   height: max-content;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  gap: 2rem;
 }
 .description {
   width: 100%;
   height: max-content;
 }
 .me-left {
-  padding: 3rem;
   flex: 6;
   flex-wrap: nowrap;
   position: relative;
@@ -91,9 +84,10 @@ $border-color: #a0a0a0;
   content: '';
   position: absolute;
   width: 100px;
-  height: 100px;
-  box-shadow: 0px 0px 500px 10px #ffd60a;
-  left: -140px;
+  height: 0px;
+  box-shadow: -50px 120px 300px 30px #ffd60a;
+  left: 140px;
+  top: 0;
 }
 .me-left::after {
   content: '';
@@ -119,7 +113,7 @@ $border-color: #a0a0a0;
   display: flex;
   flex-direction: column;
   flex: 4;
-  align-items: center;
+  align-items: flex-end;
   gap: 5rem;
   position: relative;
   background: transparent;
@@ -135,6 +129,9 @@ $border-color: #a0a0a0;
   //   rgba(57, 17, 129, 0) 70%
   // );
   box-shadow: 200px 170px 200px 80px rgb(57, 17, 129);
+}
+.work-list {
+  max-width: 20rem;
 }
 li {
   position: relative;
@@ -167,6 +164,55 @@ li {
   background-color: $list-bar-color;
   border-radius: 10rem;
 }
+@media screen and (max-width: 980px) {
+  .description__container {
+    height: 100%;
+  }
+  .description-me {
+    flex-direction: column;
+    align-items: center;
+  }
+  .work-list-bg {
+    box-shadow: 0px 250px 200px 80px rgb(57, 17, 129);
+  }
+}
 </style>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      description_text: `👋 Cześć, <br /><br />🎓 Jestem absolwentem Uniwersytetu Merito w Poznaniu, gdzie
+            zdobyłem tytuł inżyniera informatyki ze specjalizacją w e-commerce. <br />💼 Aktualnie
+            rozwijam swoją karierę w firmie e-commerce, gdzie pełnię rolę twórcy oprogramowania do
+            integracji firmowego systemu ERP z popularnymi marketplace'ami, takimi jak Pigu,
+            Allegro, a także z platformami e-commerce, głównie Prestashop, oraz narzędziem
+            Baselinker. <br />🚀 Poza tworzeniem aplikacji integrujących systemy zajmuje się również
+            usprawnieniem oraz optymalizacją procesów biznesowych oraz ich automatyzacją. <br />🛠️
+            Stawiam na ciągły rozwój, aby być na bieżąco z najnowszymi trendami w technologii.
+            <br />💡 Posiadam solidne umiejętności programistyczne oraz doświadczenie pozwalają mi
+            skutecznie realizować projekty związane z rozwijaniem funkcjonalności oraz
+            dostosowywaniem systemów do aktualnych potrzeb rynkowych.`,
+      worklist: [
+        {
+          title: `Developer - Mastersport Sp. z o. o. <br />
+                  od 2022.05.01`,
+          description: `Wytwarzanie nowego oprogramowania <br />
+                  Integracja systemu ERP z marketplace'ami <br />
+                  Optymaliazcja procesów biznesowych <br />
+                  Rozwój aplikacji <br />
+                  Wdrażanie aplikacji <br />
+                  Administracja serwera <br /> `
+        },
+        {
+          title: `Informatyk - Matex Sp. z o. o. <br />
+                  od 2022.01.01 do 2022.04.31`,
+          description: `Zarządanie siecią LAN <br />
+                  Administracja serwera firmy <br />
+                  Help Desk <br /> `
+        }
+      ]
+    }
+  }
+}
+</script>

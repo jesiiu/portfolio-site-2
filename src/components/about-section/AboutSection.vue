@@ -3,7 +3,7 @@ import AboutAction from './AboutAction.vue'
 </script>
 
 <template>
-  <section class="about__container">
+  <section class="about__container container-l">
     <div class="about__content">
       <div class="about-elements">
         <div class="about-photo">
@@ -11,9 +11,9 @@ import AboutAction from './AboutAction.vue'
         </div>
         <div class="about-description">
           <div class="description-text">
-            <h5>Cześć, nazywam się</h5>
-            <h2>Kacper Jess</h2>
-            <h4>Junior Developer</h4>
+            <h5>{{ h5 }}</h5>
+            <h2>{{ h2 }}</h2>
+            <h4>{{ h4 }}</h4>
             <AboutAction />
           </div>
         </div>
@@ -24,9 +24,7 @@ import AboutAction from './AboutAction.vue'
 
 <style lang="scss">
 .about__container {
-  width: 100%;
   height: 100vh;
-  display: block;
 }
 .about__content {
   width: 100%;
@@ -82,6 +80,35 @@ import AboutAction from './AboutAction.vue'
   height: 500px;
   background: whitesmoke;
 }
+@media screen and (max-width: 796px) {
+  .about__container {
+    height: 100%;
+    padding: 3rem 0rem;
+  }
+  .about-elements {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .description-text {
+    gap: 0;
+  }
+}
+@media screen and (max-width: 680px) {
+  .about-photo {
+    width: 350px;
+  }
+}
 </style>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      h2: 'Kacper Jess',
+      h4: 'Junior Developer',
+      h5: 'Cześć, nazywam się'
+    }
+  }
+}
+</script>

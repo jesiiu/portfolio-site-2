@@ -1,46 +1,33 @@
 <script setup></script>
 <template>
-  <section class="techstack__container">
+  <section class="techstack__container container-l">
     <div class="techstack__content">
       <h5>Moje umiejętności</h5>
       <h2>Tech Stack</h2>
       <div class="techstack__grid">
-        <div class="stack frontendstack">
-          <div class="name">Frontend</div>
+        <div
+          v-for="(stack, stackIndex) in technologies"
+          :key="stackIndex"
+          class="stack"
+          :class="stack.className"
+        >
+          <div class="name">{{ stack.name }}</div>
           <div class="icons">
-            <div class="icon" id="vue"><v-icon name="vi-file-type-vue" scale="3" /></div>
-            <div class="icon" id="scss"><v-icon name="vi-file-type-scss" scale="3" /></div>
-            <div class="icon" id="js">
-              <v-icon name="vi-file-type-js-official" class="jsicon" scale="3" />
-              <v-icon name="vi-file-type-typescript-official" class="tsicon" scale="3" />
+            <div
+              v-for="(icon, iconIndex) in stack.techs"
+              :key="iconIndex"
+              class="icon"
+              :id="icon.id"
+            >
+              <v-icon :name="icon.iconName" scale="3" />
+              <v-icon
+                v-if="icon.id == 'js'"
+                name="vi-file-type-typescript-official"
+                class="tsicon"
+                scale="3"
+              />
             </div>
-            <div class="icon" id="html"><v-icon name="vi-file-type-html" scale="3" /></div>
-            <div class="icon" id="electron"><v-icon name="io-logo-electron" scale="3" /></div>
           </div>
-        </div>
-        <div class="stack backendstack">
-          <div class="icons">
-            <div class="icon" id="python"><v-icon name="vi-file-type-python" scale="3" /></div>
-            <div class="icon" id="laravel"><v-icon name="fa-laravel" scale="3" /></div>
-            <div class="icon" id="node"><v-icon name="vi-file-type-node" scale="3" /></div>
-            <div class="icon" id="csharp"><v-icon name="si-csharp" scale="3" /></div>
-          </div>
-          <div class="name">Backend</div>
-        </div>
-        <div class="stack database">
-          <div class="name">Database</div>
-          <div class="icons database">
-            <div class="icon" id="mssql"><v-icon name="si-microsoftsqlserver" scale="3" /></div>
-            <div class="icon" id="pgsql"><v-icon name="vi-file-type-pgsql" scale="3" /></div>
-          </div>
-        </div>
-        <div class="stack servers">
-          <div class="icons servers">
-            <div class="icon" id="nginx"><v-icon name="vi-file-type-nginx" scale="3" /></div>
-            <div class="icon" id="apache"><v-icon name="vi-file-type-apache" scale="3" /></div>
-            <div class="icon" id="debian"><v-icon name="fc-debian" scale="3" /></div>
-          </div>
-          <div class="name">Servers</div>
         </div>
       </div>
     </div>
@@ -48,9 +35,8 @@
 </template>
 <style lang="scss">
 .techstack__container {
-  width: 100%;
   height: 100%;
-  display: block;
+  padding-top: 5rem;
 }
 .techstack__content {
   width: 100%;
@@ -74,9 +60,7 @@
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 8rem;
-  padding: 1rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  margin-top: 5rem;
 }
 .stack {
   width: 100%;
@@ -89,6 +73,12 @@
     font-weight: 600;
     font-size: 1.4rem;
   }
+  &.backendstack {
+    flex-direction: row-reverse;
+  }
+  &.servers {
+    flex-direction: row-reverse;
+  }
 }
 .name {
   display: flex;
@@ -96,6 +86,7 @@
   align-items: center;
   height: 100%;
   width: 100%;
+  padding-left: 1rem;
   flex: 3;
   border-right: 1px solid white;
 }
@@ -208,7 +199,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 600;
 }
 #vue:hover::after {
@@ -236,7 +227,7 @@
   content: 'C#';
 }
 #node:hover::after {
-  content: 'Node JS';
+  content: 'NodeJS';
 }
 #mssql:hover::after {
   content: 'MSSQL';
@@ -262,4 +253,132 @@
 .tsicon {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 0%);
 }
+@media screen and (max-width: 980px) {
+  .stack {
+    flex-direction: column;
+    .name {
+      border: unset;
+      padding: 0;
+    }
+    &.backendstack,
+    &.servers {
+      flex-direction: column;
+    }
+    &.database {
+      .icons {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  .icons {
+    &.servers {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media screen and (max-width: 680px) {
+  .icons {
+    grid-template-columns: repeat(2, 1fr);
+    &.servers {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .icon {
+      padding: 1.4rem;
+    }
+  }
+  .techstack__grid {
+    gap: 0;
+  }
+}
 </style>
+<script>
+export default {
+  data() {
+    return {
+      technologies: [
+        {
+          name: `Frontend`,
+          className: `frontname`,
+          techs: [
+            {
+              id: `vue`,
+              iconName: `vi-file-type-vue`
+            },
+            {
+              id: `scss`,
+              iconName: `vi-file-type-scss`
+            },
+            {
+              id: `js`,
+              iconName: `vi-file-type-js-official`
+            },
+            {
+              id: `html`,
+              iconName: `vi-file-type-html`
+            },
+            {
+              id: `electron`,
+              iconName: `io-logo-electron`
+            }
+          ]
+        },
+        {
+          name: `Backend`,
+          className: `backendstack`,
+          techs: [
+            {
+              id: `python`,
+              iconName: `vi-file-type-python`
+            },
+            {
+              id: `laravel`,
+              iconName: `fa-laravel`
+            },
+            {
+              id: `node`,
+              iconName: `vi-file-type-node`
+            },
+            {
+              id: `csharp`,
+              iconName: `si-csharp`
+            }
+          ]
+        },
+        {
+          name: `Database`,
+          className: `database`,
+          techs: [
+            {
+              id: `mssql`,
+              iconName: `si-microsoftsqlserver`
+            },
+            {
+              id: `pgsql`,
+              iconName: `vi-file-type-pgsql`
+            }
+          ]
+        },
+        {
+          name: `Servers`,
+          className: `servers`,
+          techs: [
+            {
+              id: `nginx`,
+              iconName: `vi-file-type-nginx`
+            },
+            {
+              id: `apache`,
+              iconName: `vi-file-type-apache`
+            },
+            {
+              id: `debian`,
+              iconName: `fc-debian`
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+</script>
