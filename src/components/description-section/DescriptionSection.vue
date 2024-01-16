@@ -53,7 +53,8 @@
 $list-bar-color: #a0a0a0;
 $border-color: #a0a0a0;
 .description__container {
-  height: 100vh;
+  height: 100%;
+  min-height: 70vh;
   padding: 1rem;
 }
 .description__content {

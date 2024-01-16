@@ -150,13 +150,13 @@
       -2px 2px 15px 5px rgb(255, 217, 0);
   }
   &#html {
-    box-shadow: 0px 0px 25px 2px #f79606;
+    box-shadow: 0px 0px 25px 2px #ff9901;
   }
   &#electron {
     box-shadow: 0px 0px 25px 2px #0adae9;
   }
   &#python {
-    box-shadow: 0px 0px 25px 2px #deee05;
+    box-shadow: 0px 0px 25px 2px #eeff06;
   }
   &#laravel {
     box-shadow: 0px 0px 25px 2px #f82205;
@@ -165,7 +165,7 @@
     box-shadow: 0px 0px 25px 2px #bc0ae9;
   }
   &#node {
-    box-shadow: 0px 0px 25px 2px #0adb2d;
+    box-shadow: 0px 0px 25px 2px #6cc24a;
   }
   &#mssql {
     box-shadow: 0px 0px 25px 2px #bebebe;
@@ -180,7 +180,7 @@
     box-shadow: 0px 0px 25px 2px #f14704;
   }
   &#debian {
-    box-shadow: 0px 0px 25px 2px #c42929;
+    box-shadow: 0px 0px 25px 2px #d70a53;
   }
 }
 .icon::after {
@@ -194,6 +194,8 @@
   z-index: 1;
   display: none;
   border-radius: 12px;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
 }
 .icon:hover::after {
   color: white;
@@ -202,6 +204,7 @@
   align-items: center;
   font-size: 1.6rem;
   font-weight: 600;
+  opacity: 1;
 }
 #vue:hover::after {
   content: 'VUE';

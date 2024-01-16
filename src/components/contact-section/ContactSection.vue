@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-  <section class="contact__container" id="contact">
+  <section class="contact__container container-xl" id="contact">
     <div class="contact__content">
       <div class="contact-options">
         <div
@@ -25,14 +25,12 @@
 </template>
 <style lang="scss">
 .contact__container {
-  width: 100%;
   height: 60vh;
 }
 .contact__content {
   width: 100%;
   height: 100%;
   display: block;
-  padding: 10rem;
 }
 .contact-options {
   width: 100%;
@@ -100,12 +98,23 @@
 @media screen and (max-width: 1280px) {
   .contact__container {
     height: 100%;
+    width: 960px;
+    padding-bottom: 5rem;
   }
   .contact-options {
     flex-direction: column;
   }
 }
+
+@media screen and (max-width: 980px) {
+  .contact__container {
+    width: 660px;
+  }
+}
 @media screen and (max-width: 680px) {
+  .contact__container {
+    padding: 0;
+  }
   .contact__content {
     padding: 2rem;
   }

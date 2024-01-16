@@ -11,8 +11,10 @@
           :key="projectIndex"
         >
           <span class="element-title"
-            >{{ project.title }} <v-icon name="io-logo-github" id="github-icon" scale="2"
-          /></span>
+            >{{ project.title }}
+            <a :href="project.link" target="_blank"
+              ><v-icon name="io-logo-github" id="github-icon" scale="2" /></a
+          ></span>
           <div class="element-description">
             <p class="description-text">{{ project.description }}</p>
             <div class="elements-stack">
@@ -82,6 +84,10 @@
   font-size: 1.5rem;
   border-bottom: 1px solid white;
   padding-bottom: 1rem;
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }
 .element-description {
   width: 100%;
@@ -180,13 +186,10 @@ export default {
       projects: [
         {
           title: `OrdersHub`,
-          description: ` Aplikacja utworzona na potrzeby projektu dyplomowego - pracy inżynierskiej. Model SI
-              Chatbota został dostarczony przez bibliotekę PyTorch, która została odpowiednio
-              skonfigurowana pod wymagania projektu. Model był uczony poprzez nadzorowane uczenie
-              maszynowe zbiorem treningowym, który zawierał zestaw pytań oraz odpowiedzi w
-              zależności od intencji związanych z działalnością e-commerce. Chatbot został
-              umieszczony na serwerze zdalnym w postaci aplikacji która posiadała endpoint REST API,
-              pozwalający na przesłanie zapytania użytkownika i uzyskania odpowedzi od Chatbota.`,
+          description: `Aplikacja, stworzona w celu optymalizacji procesu obsługi zamówień, stanowi wszechstronne narzędzie do agregowania zamówień pochodzących z różnych platform sprzedażowych, w tym z Baselinkera. Jej funkcjonalność przekłada się na efektywne zarządzanie czasem realizacji zamówień, co z kolei wpływa na poprawę opinii klientów oraz wzrost sprzedaży.
+Aplikacja umożliwia integrację z kilkoma punktami sprzedaży stacjonarnych/magazynami, co pozwala na obsługę zamówień pochodzących z różnych źródeł, takich jak kilka sklepów. Dzięki tej elastyczności użytkownicy mają możliwość rezerwacji zamówienia przez wybrany punkt sprzedaży, generowania dokumentów sprzedażowych, pobierania etykiet wysyłkowych dla zamówień oraz modyfikowania statusów obsługi bezpośrednio na platformie.
+Przejrzysty interfejs aplikacji ułatwia korzystanie z jej funkcji, a zaawansowane opcje pozwalają na sprawną koordynację procesów magazynowych. W rezultacie, użytkownicy mogą skuteczniej zarządzać swoimi zamówieniami, dostarczając klientom satysfakcję i podnosząc efektywność sprzedaży.`,
+          link: 'https://github.com/jesiiu?tab=repositories',
           techstack: [
             {
               name: `Vue`
@@ -198,7 +201,7 @@ export default {
               name: `PostgreSQL`
             },
             {
-              name: `JS`
+              name: `RestAPI`
             },
             {
               name: `Nginx`
@@ -207,12 +210,9 @@ export default {
         },
         {
           title: `Chatbot AI/ML`,
-          description: `Aplikacja agregująca zamówienia pobierane z różnych platform sprzedażowych, w tym z
-              Baselinkera. Pozwala to na optymalizację czasu realizacji zamówienia co z kolei
-              przekłada się na lepsze opinie oraz zwiększenie sprzedaży. Aplikacja umożliwia
-              podpięcie kilku magazynów przez które zamówienia mogą obsługiwane (na przykład kilka
-              sklepów), zarezerwować zamówienie przez wybrany magazyn, tworzyć dokument sprzedażowy,
-              pobrać etykietę wysyłkową dla zamówienia oraz zmienić status obsługi na platformie.`,
+          description: `Aplikacja powstała w ramach projektu dyplomowego - pracy inżynierskiej, celem której było stworzenie zaawansowanego Chatbota opartego na modelu SI. Wykorzystano bibliotekę PyTorch, dostosowaną do specyfikacji projektu, w celu efektywnego szkolenia modelu. Proces ten opierał się na nadzorowanym uczeniu maszynowym przy użyciu zbioru treningowego zawierającego różnorodne pytania i odpowiedzi związane z funkcjonalnością e-commerce.
+Opracowany Chatbot został zintegrowany z serwerem zdalnym, a jego funkcjonalność udostępniona poprzez aplikację z endpointem REST API. To umożliwia użytkownikom przekazywanie zapytań do Chatbota, który w odpowiedzi dostarcza trafne odpowiedzi, dostosowane do intencji związanych z obszarem działalności e-commerce. Cała infrastruktura została starannie skonfigurowana, aby zapewnić płynne i niezawodne działanie aplikacji.`,
+          link: 'https://github.com/jesiiu/chatbot-thesis',
           techstack: [
             {
               name: `Python`
@@ -233,12 +233,34 @@ export default {
         },
         {
           title: `Integracje ERP`,
-          description: `Aplikacje przeznaczone do wymiany danych o produktach wraz z opisami, znajdujących się
-              w systemie ERP, z platformami e-commerce w celu możliwości wystawienia aukcji
-              sprzedażowych, aktualizacji cen oraz stanu magazynowego. Komunikacja odbywa się
-              poprzez pobranie danych z bazy danych MSSQL lub PGSQL a następnie wysłanie ich przy
-              użyciu dostarczonego przez target docelowy interfejsu API, ewentualnie poprzez plik
-              JSON/XML/CSV.`,
+          description: `Aplikacja została stworzona z myślą o efektywnej wymianie informacji o produktach, wraz z opisami, między systemem ERP a platformami e-commerce. Jej głównym celem jest umożliwienie wystawiania aukcji sprzedażowych, aktualizacji cen oraz bieżącego monitorowania stanu magazynowego.
+Proces komunikacji aplikacji opiera się na pobieraniu danych z baz danych MSSQL lub PGSQL, a następnie przesyłaniu ich do platform e-commerce za pomocą udostępnionego interfejsu API. Alternatywnie, możliwe jest korzystanie z formatów plików takich jak JSON, XML lub CSV do przekazywania informacji. Ta elastyczność pozwala dostosować wymianę danych do specyficznych wymagań docelowych platform.
+Dzięki tym aplikacją przedsiębiorstwo moze skutecznie zarządzać swoim asortymentem, zachowując zgodność z aktualnymi danymi magazynowymi i cenowymi na różnych platformach e-commerce. Procesy wymiany danych są zoptymalizowane, co przyczynia się do efektywności działalności handlowej online..`,
+          link: 'https://github.com/jesiiu?tab=repositories',
+          techstack: [
+            {
+              name: `Python`
+            },
+            {
+              name: `C#`
+            },
+            {
+              name: `MSSQL`
+            },
+            {
+              name: `PGSQl`
+            },
+            {
+              name: `REST/SOAP`
+            }
+          ]
+        },
+        {
+          title: `Mniejsze projekty`,
+          description: `Aplikacje stworzone z myślą o optymalizacji procesów biznesowych, mają na celu nie tylko ułatwienie pracy pracownikom, ale także zwiększenie ogólnej efektywności operacyjnej firmy. Skupiają się na minimalizacji liczby kroków wymaganych do wykonania danej czynności, eliminowaniu powtarzających się zadań oraz wykluczaniu błędów, co w rezultacie przyczynia się do zwiększenia automatyzacji.
+Te innowacyjne aplikacje zmierzają do usprawnienia codziennych operacji poprzez inteligentne zoptymalizowanie procesów. Redukcja zbędnych kroków i eliminacja powtarzających się zadań umożliwia pracownikom skupienie się na bardziej strategicznych aspektach swojej pracy. Ponadto, eliminacja błędów wpływa pozytywnie na jakość wykonywanych zadań.
+Dzięki zastosowaniu tych aplikacji, firma może zwiększyć efektywność swoich operacji, osiągając większą automatyzację i minimalizując czas oraz nakłady potrzebne do wykonania kluczowych działań biznesowych.`,
+          link: 'https://github.com/jesiiu?tab=repositories',
           techstack: [
             {
               name: `Python`
@@ -250,29 +272,7 @@ export default {
               name: `NodeJS`
             },
             {
-              name: `ElectronJS`
-            },
-            {
-              name: `MSSQL`
-            },
-            {
-              name: `PGSQl`
-            }
-          ]
-        },
-        {
-          title: `Mniejsze projekty`,
-          description: `Aplikacje optymalizujące procesy biznesowe oraz ułatwiające pracę pracownikom firmy.
-              Ich działanie skupione jest na zmniejszeniu ilości wymaganych kroków do wykonania
-              danego działania a dodatkowo eliminowanie powtarzania zbędnych czynności oraz
-              wykluczanie błedów co docelowo pozwalan na większą automatyzację dzięki czemu zwiększa
-              się efektywnośc pracy.`,
-          techstack: [
-            {
-              name: `Python`
-            },
-            {
-              name: `C#`
+              name: 'ElectronJS'
             },
             {
               name: `REST/SOAP`

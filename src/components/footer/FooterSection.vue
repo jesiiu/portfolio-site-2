@@ -2,7 +2,7 @@
 <template>
   <footer>
     <div class="footer__container">
-      <div class="footer-title"><h1>Kacper Jess</h1></div>
+      <div class="footer-title"><h1>KACPER JESS</h1></div>
       <div class="footer-sections">
         <ul class="footer-list">
           <li class="footer-list-element" @click="moveToSection('about')"><a>Start</a></li>
