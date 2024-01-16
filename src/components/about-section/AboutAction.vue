@@ -1,9 +1,12 @@
 <script setup></script>
-
 <template>
   <div class="cta">
-    <button class="btn-talk btn"><span class="btn-text">Porozmawiajmy</span></button>
-    <button class="btn-file-cv btn"><span class="btn-text">CV</span></button>
+    <button class="btn-talk btn" @click="moveToSection('contact')">
+      <span class="btn-text">Porozmawiajmy</span>
+    </button>
+    <button class="btn-file-cv btn">
+      <span class="btn-text">CV</span>
+    </button>
   </div>
 </template>
 
@@ -48,4 +51,17 @@
 }
 </style>
 
-<script></script>
+<script>
+export default {
+  methods: {
+    moveToSection(sectionId) {
+      const targetSection = document.getElementById(sectionId)
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth'
+        })
+      }
+    }
+  }
+}
+</script>

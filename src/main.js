@@ -16,7 +16,10 @@ import {
   ViFileTypeNginx,
   ViFileTypeApache,
   FcDebian,
-  IoLogoGithub
+  IoLogoGithub,
+  MdEmail,
+  BiMessenger,
+  RiWhatsappFill
 } from 'oh-vue-icons/icons'
 import App from './App.vue'
 
@@ -37,7 +40,10 @@ addIcons(
   ViFileTypeNginx,
   ViFileTypeApache,
   FcDebian,
-  IoLogoGithub
+  IoLogoGithub,
+  MdEmail,
+  BiMessenger,
+  RiWhatsappFill
 )
 app.component('v-icon', OhVueIcon)
 app.mount('#app')

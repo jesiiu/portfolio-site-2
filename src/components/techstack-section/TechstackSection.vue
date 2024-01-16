@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-  <section class="techstack__container container-l">
+  <section class="techstack__container container-l" id="techstack">
     <div class="techstack__content">
       <h5>Moje umiejętności</h5>
       <h2>Tech Stack</h2>
@@ -58,7 +58,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   gap: 8rem;
   margin-top: 5rem;
 }
@@ -113,21 +113,22 @@
   width: 100%;
   flex: 7;
   position: relative;
-  &.servers {
-    height: 100%;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(2, 1fr);
-    justify-self: center;
-  }
-  &.database {
-    height: 100%;
-    grid-template-rows: repeat(1, 1fr);
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 .jstscontainer {
   padding: 2rem;
   position: relative;
+}
+.stack {
+  &.servers {
+    .icons {
+      grid-template-rows: repeat(1, 1fr);
+    }
+  }
+  &.database {
+    .icons {
+      grid-template-rows: repeat(1, 1fr);
+    }
+  }
 }
 .icon {
   position: relative;

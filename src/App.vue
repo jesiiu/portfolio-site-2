@@ -3,6 +3,7 @@ import AboutSection from './components/about-section/AboutSection.vue'
 import DescriptionSection from './components/description-section/DescriptionSection.vue'
 import TechStackSection from './components/techstack-section/TechstackSection.vue'
 import PortfolioSection from './components/portfolio-section/PortfolioSection.vue'
+import ContactSection from './components/contact-section/ContactSection.vue'
 import FooterSection from './components/footer/FooterSection.vue'
 </script>
 
@@ -11,6 +12,7 @@ import FooterSection from './components/footer/FooterSection.vue'
   <DescriptionSection />
   <TechStackSection />
   <PortfolioSection />
+  <ContactSection />
   <FooterSection />
 </template>
 
@@ -72,4 +74,6 @@ span {
 }
 </style>
 
-<script></script>
+<script>
+
+</script>

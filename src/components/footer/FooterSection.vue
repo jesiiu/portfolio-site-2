@@ -5,11 +5,11 @@
       <div class="footer-title"><h1>Kacper Jess</h1></div>
       <div class="footer-sections">
         <ul class="footer-list">
-          <li class="footer-list-element"><a>Start</a></li>
-          <li class="footer-list-element"><a>O Mnie</a></li>
-          <li class="footer-list-element"><a>Tech Stack</a></li>
-          <li class="footer-list-element"><a>Portfolio</a></li>
-          <li class="footer-list-element"><a>Kontakt</a></li>
+          <li class="footer-list-element" @click="moveToSection('about')"><a>Start</a></li>
+          <li class="footer-list-element" @click="moveToSection('description')"><a>O Mnie</a></li>
+          <li class="footer-list-element" @click="moveToSection('techstack')"><a>Tech Stack</a></li>
+          <li class="footer-list-element" @click="moveToSection('portfolio')"><a>Portfolio</a></li>
+          <li class="footer-list-element" @click="moveToSection('contact')"><a>Kontakt</a></li>
         </ul>
       </div>
       <div class="copyrights"><small>© Created by Kacper Jess</small></div>
@@ -19,7 +19,7 @@
 <style lang="scss">
 footer {
   width: 100%;
-  height: 50vh;
+  height: 40vh;
   background: #7678ed;
   padding: 0;
   display: block;
@@ -68,3 +68,17 @@ footer {
   }
 }
 </style>
+<script>
+export default {
+  methods: {
+    moveToSection(sectionId) {
+      const targetSection = document.getElementById(sectionId)
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth'
+        })
+      }
+    }
+  }
+}
+</script>

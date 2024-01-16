@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-  <section class="portfolio__container container-xl">
+  <section class="portfolio__container container-xl" id="portfolio">
     <div class="portfolio__content">
       <h5>Moje prace</h5>
       <h2>Portfolio</h2>
@@ -24,31 +24,6 @@
               >
                 <small>{{ tech.name }}</small>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio__element">
-          <span class="element-title"
-            >Mniejsze projekty<v-icon name="io-logo-github" id="github-icon" scale="2"
-          /></span>
-          <div class="element-description">
-            <p class="description-text">
-              Aplikacje optymalizujące procesy biznesowe oraz ułatwiające pracę pracownikom firmy.
-              Ich działanie skupione jest na zmniejszeniu ilości wymaganych kroków do wykonania
-              danego działania a dodatkowo eliminowanie powtarzania zbędnych czynności oraz
-              wykluczanie błedów co docelowo pozwalan na większą automatyzację dzięki czemu zwiększa
-              się efektywnośc pracy.
-            </p>
-            <div class="elements-stack">
-              <div class="grid-element">
-                <span>Tech Stack</span>
-              </div>
-              <div class="grid-element"><small>Python</small></div>
-              <div class="grid-element"><small>C#</small></div>
-              <div class="grid-element"><small>NodeJS</small></div>
-              <div class="grid-element"><small>ElectronJS</small></div>
-              <div class="grid-element"><small>MSSQL</small></div>
-              <div class="grid-element"><small>PGSQl</small></div>
             </div>
           </div>
         </div>
@@ -95,6 +70,13 @@
   flex-direction: column;
   gap: 1rem;
 }
+.portfolio__element::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 0px;
+  box-shadow: -10px 20px 60px 4px #0623c7;
+}
 .element-title {
   font-weight: 600;
   font-size: 1.5rem;
@@ -133,7 +115,7 @@
 }
 .grid-element:not(:first-child)::after {
   content: '';
-  background: rgb(133, 133, 133);
+  background: rgb(255, 255, 255);
   width: 10px;
   height: 10px;
   position: absolute;
@@ -185,6 +167,9 @@
   .elements-stack {
     display: flex;
     flex-direction: column;
+  }
+  .portfolio__element::before {
+    width: 100%;
   }
 }
 </style>

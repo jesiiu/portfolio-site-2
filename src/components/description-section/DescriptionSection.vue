@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <section class="description__container container-xl">
+  <section class="description__container container-xl" id="description">
     <div class="description__content">
       <div class="description-me">
         <div class="me-left">

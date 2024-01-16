@@ -3,7 +3,7 @@ import AboutAction from './AboutAction.vue'
 </script>
 
 <template>
-  <section class="about__container container-l">
+  <section class="about__container container-l" id="about">
     <div class="about__content">
       <div class="about-elements">
         <div class="about-photo">
