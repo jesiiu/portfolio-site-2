@@ -192,7 +192,7 @@ export default {
         },
         {
           title: `Informatyk - Matex Sp. z o. o. <br />
-                  od 2022.01.01 do 2022.04.31`,
+                  od 2022.01.01 do 2022.04.30`,
           description: `Zarządanie siecią LAN <br />
                   Administracja serwera firmy <br />
                   Help Desk <br /> `
