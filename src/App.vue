@@ -32,6 +32,15 @@ import FooterSection from './components/footer/FooterSection.vue'
 html {
   scroll-behavior: smooth;
 }
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfcfcf;
+}
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -74,6 +83,4 @@ span {
 }
 </style>
 
-<script>
-
-</script>
+<script></script>

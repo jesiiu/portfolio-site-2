@@ -98,7 +98,6 @@
 @media screen and (max-width: 1280px) {
   .contact__container {
     height: 100%;
-    width: 960px;
     padding-bottom: 5rem;
   }
   .contact-options {
@@ -113,7 +112,7 @@
 }
 @media screen and (max-width: 680px) {
   .contact__container {
-    padding: 0;
+    padding: 2rem 0;
   }
   .contact__content {
     padding: 2rem;

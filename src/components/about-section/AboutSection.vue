@@ -4,7 +4,7 @@ import AboutAction from './AboutAction.vue'
 
 <template>
   <section class="about__container container-l" id="about">
-    <div class="about__content">
+    <div class="about__content" v-motion-fade :delay="100">
       <div class="about-elements">
         <div class="about-photo">
           <img src="../../../src/assets/img/2.webp" />

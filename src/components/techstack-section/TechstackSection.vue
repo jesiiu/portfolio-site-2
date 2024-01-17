@@ -10,6 +10,8 @@
           :key="stackIndex"
           class="stack"
           :class="stack.className"
+          v-motion-fade-visible
+          :visible="{opacity: 1, y: 0}"
         >
           <div class="name">{{ stack.name }}</div>
           <div class="icons">

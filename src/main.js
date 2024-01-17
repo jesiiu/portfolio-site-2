@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
+import { MotionPlugin } from '@vueuse/motion'
 import {
   ViFileTypeVue,
   ViFileTypeScss,
@@ -24,6 +25,7 @@ import {
 import App from './App.vue'
 
 const app = createApp(App)
+app.use(MotionPlugin)
 addIcons(
   ViFileTypeVue,
   ViFileTypeScss,

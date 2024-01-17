@@ -7,6 +7,8 @@
       <div class="portfolio__elements">
         <div
           class="portfolio__element"
+          v-motion-fade-visible
+          :visible="{ opacity: 1, y: 0 }"
           v-for="(project, projectIndex) in projects"
           :key="projectIndex"
         >
@@ -186,8 +188,8 @@ export default {
       projects: [
         {
           title: `OrdersHub`,
-          description: `Aplikacja, stworzona w celu optymalizacji procesu obsługi zamówień, stanowi wszechstronne narzędzie do agregowania zamówień pochodzących z różnych platform sprzedażowych, w tym z Baselinkera. Jej funkcjonalność przekłada się na efektywne zarządzanie czasem realizacji zamówień, co z kolei wpływa na poprawę opinii klientów oraz wzrost sprzedaży.
-Aplikacja umożliwia integrację z kilkoma punktami sprzedaży stacjonarnych/magazynami, co pozwala na obsługę zamówień pochodzących z różnych źródeł, takich jak kilka sklepów. Dzięki tej elastyczności użytkownicy mają możliwość rezerwacji zamówienia przez wybrany punkt sprzedaży, generowania dokumentów sprzedażowych, pobierania etykiet wysyłkowych dla zamówień oraz modyfikowania statusów obsługi bezpośrednio na platformie.
+          description: `Aplikacja stworzona w celu optymalizacji procesu obsługi zamówień, stanowi ona wszechstronne narzędzie do agregowania zamówień pochodzących z różnych platform sprzedażowych, w tym z Baselinkera. Jej funkcjonalność przekłada się na efektywne zarządzanie czasem realizacji zamówień, co z kolei wpływa na poprawę opinii klientów oraz wzrost sprzedaży.
+Aplikacja umożliwia obsługę zamówień przez kilka magazynów/sklepów stacjonarnych dzięki możliwości rezerwacji zamówienia przez wybrany punkt sprzedaży, generowania dokumentów sprzedażowych, pobierania etykiet wysyłkowych dla zamówień oraz modyfikowania statusów obsługi bezpośrednio na platformie.
 Przejrzysty interfejs aplikacji ułatwia korzystanie z jej funkcji, a zaawansowane opcje pozwalają na sprawną koordynację procesów magazynowych. W rezultacie, użytkownicy mogą skuteczniej zarządzać swoimi zamówieniami, dostarczając klientom satysfakcję i podnosząc efektywność sprzedaży.`,
           link: 'https://github.com/jesiiu?tab=repositories',
           techstack: [
@@ -210,8 +212,8 @@ Przejrzysty interfejs aplikacji ułatwia korzystanie z jej funkcji, a zaawansowa
         },
         {
           title: `Chatbot AI/ML`,
-          description: `Aplikacja powstała w ramach projektu dyplomowego - pracy inżynierskiej, celem której było stworzenie zaawansowanego Chatbota opartego na modelu SI. Wykorzystano bibliotekę PyTorch, dostosowaną do specyfikacji projektu, w celu efektywnego szkolenia modelu. Proces ten opierał się na nadzorowanym uczeniu maszynowym przy użyciu zbioru treningowego zawierającego różnorodne pytania i odpowiedzi związane z funkcjonalnością e-commerce.
-Opracowany Chatbot został zintegrowany z serwerem zdalnym, a jego funkcjonalność udostępniona poprzez aplikację z endpointem REST API. To umożliwia użytkownikom przekazywanie zapytań do Chatbota, który w odpowiedzi dostarcza trafne odpowiedzi, dostosowane do intencji związanych z obszarem działalności e-commerce. Cała infrastruktura została starannie skonfigurowana, aby zapewnić płynne i niezawodne działanie aplikacji.`,
+          description: `Aplikacja powstała w ramach projektu dyplomowego - pracy inżynierskiej, celem której było stworzenie zaawansowanego Chatbota opartego na modelu SI. Wykorzystano bibliotekę PyTorch, która została dostosowana do specyfikacji projektu w celu efektywnego szkolenia modelu. Proces ten opierał się na nadzorowanym uczeniu maszynowym przy użyciu zbioru treningowego zawierającego różnorodne pytania i odpowiedzi związane z funkcjonalnością e-commerce.
+Opracowany Chatbot został zintegrowany z serwerem zdalnym, a jego funkcjonalność udostępniona poprzez aplikację Flask z endpointem REST API. To umożliwia użytkownikom przekazywanie zapytań do Chatbota, który w odpowiedzi dostarcza trafne odpowiedzi, dostosowane do intencji związanych z obszarem działalności e-commerce. Cała infrastruktura została starannie skonfigurowana, aby zapewnić płynne i niezawodne działanie aplikacji.`,
           link: 'https://github.com/jesiiu/chatbot-thesis',
           techstack: [
             {
@@ -235,7 +237,7 @@ Opracowany Chatbot został zintegrowany z serwerem zdalnym, a jego funkcjonalno�
           title: `Integracje ERP`,
           description: `Aplikacja została stworzona z myślą o efektywnej wymianie informacji o produktach, wraz z opisami, między systemem ERP a platformami e-commerce. Jej głównym celem jest umożliwienie wystawiania aukcji sprzedażowych, aktualizacji cen oraz bieżącego monitorowania stanu magazynowego.
 Proces komunikacji aplikacji opiera się na pobieraniu danych z baz danych MSSQL lub PGSQL, a następnie przesyłaniu ich do platform e-commerce za pomocą udostępnionego interfejsu API. Alternatywnie, możliwe jest korzystanie z formatów plików takich jak JSON, XML lub CSV do przekazywania informacji. Ta elastyczność pozwala dostosować wymianę danych do specyficznych wymagań docelowych platform.
-Dzięki tym aplikacją przedsiębiorstwo moze skutecznie zarządzać swoim asortymentem, zachowując zgodność z aktualnymi danymi magazynowymi i cenowymi na różnych platformach e-commerce. Procesy wymiany danych są zoptymalizowane, co przyczynia się do efektywności działalności handlowej online..`,
+Dzięki tym aplikacją przedsiębiorstwo może skutecznie zarządzać swoim asortymentem, zachowując zgodność z aktualnymi danymi magazynowymi i cenowymi na różnych platformach e-commerce.`,
           link: 'https://github.com/jesiiu?tab=repositories',
           techstack: [
             {
@@ -257,9 +259,9 @@ Dzięki tym aplikacją przedsiębiorstwo moze skutecznie zarządzać swoim asort
         },
         {
           title: `Mniejsze projekty`,
-          description: `Aplikacje stworzone z myślą o optymalizacji procesów biznesowych, mają na celu nie tylko ułatwienie pracy pracownikom, ale także zwiększenie ogólnej efektywności operacyjnej firmy. Skupiają się na minimalizacji liczby kroków wymaganych do wykonania danej czynności, eliminowaniu powtarzających się zadań oraz wykluczaniu błędów, co w rezultacie przyczynia się do zwiększenia automatyzacji.
-Te innowacyjne aplikacje zmierzają do usprawnienia codziennych operacji poprzez inteligentne zoptymalizowanie procesów. Redukcja zbędnych kroków i eliminacja powtarzających się zadań umożliwia pracownikom skupienie się na bardziej strategicznych aspektach swojej pracy. Ponadto, eliminacja błędów wpływa pozytywnie na jakość wykonywanych zadań.
-Dzięki zastosowaniu tych aplikacji, firma może zwiększyć efektywność swoich operacji, osiągając większą automatyzację i minimalizując czas oraz nakłady potrzebne do wykonania kluczowych działań biznesowych.`,
+          description: `Aplikacje stworzone z myślą o optymalizacji procesów biznesowych, mają na celu nie tylko ułatwienie pracy pracownikom, ale także zwiększenie ogólnej efektywności operacyjnej firmy. Skupiają się na minimalizacji liczby kroków wymaganych do wykonania danej czynności, eliminowaniu powtarzających się zadań oraz wykluczaniu błędów, co w rezultacie przyczynia się do zmniejszenia ilości błędów jak i zwiększenia automatyzacji.
+Te innowacyjne aplikacje zmierzają do usprawnienia codziennych operacji poprzez inteligentne zoptymalizowanie procesów a redukcja zbędnych kroków i eliminacja powtarzających się zadań umożliwia pracownikom skupienie się na bardziej strategicznych aspektach swojej pracy. Ponadto, eliminacja błędów wpływa pozytywnie na jakość wykonywanych zadań.
+Dzięki zastosowaniu tych aplikacji firma może zwiększyć efektywność swoich operacji, osiągając większą automatyzację i minimalizując czas oraz nakłady potrzebne do wykonania kluczowych działań biznesowych.`,
           link: 'https://github.com/jesiiu?tab=repositories',
           techstack: [
             {
