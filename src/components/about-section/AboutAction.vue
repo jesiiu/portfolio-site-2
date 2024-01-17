@@ -44,6 +44,7 @@
   border: 1px solid;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 .btn-text {
   font-weight: 600;

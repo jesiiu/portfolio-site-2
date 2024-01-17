@@ -89,6 +89,9 @@
   a {
     text-decoration: none;
     color: white;
+    svg {
+      cursor: pointer;
+    }
   }
 }
 .element-description {
@@ -117,6 +120,7 @@
     font-weight: 500;
   }
   small {
+    cursor: pointer;
     font-size: 0.8rem;
     margin-right: 0.4rem;
   }

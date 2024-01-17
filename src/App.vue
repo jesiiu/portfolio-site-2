@@ -27,6 +27,7 @@ import FooterSection from './components/footer/FooterSection.vue'
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  cursor: default;
 }
 
 html {
