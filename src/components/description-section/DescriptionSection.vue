@@ -11,31 +11,6 @@
         <div class="me-right">
           <div class="work-list-bg"></div>
           <ul class="work-list">
-            <!-- <li class="work-list-element">
-              <span class="list-element"
-                ><em
-                  >Developer - Mastersport Sp. z o. o. <br />
-                  od 2022.05.01</em
-                ><br /><small
-                  >Wytwarzanie nowego oprogramowania <br />
-                  Integracja systemu ERP z marketplace'ami <br />
-                  Optymaliazcja procesów biznesowych <br />
-                  Rozwój aplikacji <br />
-                  Wdrażanie aplikacji <br />
-                  Administracja serwera <br /> </small
-              ></span>
-            </li>
-            <li class="work-list-element not">
-              <span
-                ><em
-                  >Informatyk - Matex Sp. z o. o. <br />
-                  od 2022.01.01 do 2022.04.31</em
-                ><br /><small>
-                  Zarządanie siecią LAN <br />
-                  Administracja serwera firmy <br />
-                  Help Desk <br /> </small
-              ></span>
-            </li> -->
             <li v-for="(work, workIndex) in worklist" :key="workIndex" class="work-list-element">
               <span class="list-element">
                 <em v-html="work.title"></em><br />
@@ -176,6 +151,16 @@ li {
   .work-list-bg {
     box-shadow: 0px 250px 200px 80px rgb(57, 17, 129);
   }
+}
+@media screen and (max-width: 786px) {
+  .me-left::before {
+    width: 100%;
+    box-shadow: -50px 120px 300px 2px #ffd60a;
+  }
+  .me-left::after {
+  width: 100%;
+  box-shadow: 0px 0px 500px 2px #e44608;
+}
 }
 </style>
 
