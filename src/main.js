@@ -20,7 +20,8 @@ import {
   IoLogoGithub,
   MdEmail,
   BiMessenger,
-  RiWhatsappFill
+  RiWhatsappFill,
+  BiLinkedin
 } from 'oh-vue-icons/icons'
 import App from './App.vue'
 
@@ -45,7 +46,8 @@ addIcons(
   IoLogoGithub,
   MdEmail,
   BiMessenger,
-  RiWhatsappFill
+  RiWhatsappFill,
+  BiLinkedin
 )
 app.component('v-icon', OhVueIcon)
 app.mount('#app')
