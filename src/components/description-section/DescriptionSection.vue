@@ -171,13 +171,13 @@ export default {
       description_text: `👋 Cześć, <br /><br />🎓 Jestem absolwentem Uniwersytetu Merito w Poznaniu, gdzie
             zdobyłem tytuł inżyniera informatyki ze specjalizacją w e-commerce. <br />💼 Aktualnie
             rozwijam swoją karierę w firmie e-commerce, gdzie pełnię rolę twórcy oprogramowania do
-            integracji firmowego systemu ERP z popularnymi marketplace'ami, takimi jak Pigu,
+            integracji systemu ERP z popularnymi marketplace'ami, takimi jak Pigu,
             Allegro, a także z platformami e-commerce, głównie Prestashop, oraz narzędziem
             Baselinker. <br />🚀 Poza tworzeniem aplikacji integrujących systemy zajmuje się również
             usprawnieniem oraz optymalizacją procesów biznesowych oraz ich automatyzacją. <br />🛠️
             Stawiam na ciągły rozwój, aby być na bieżąco z najnowszymi trendami w technologii.
-            <br />💡 Posiadam solidne umiejętności programistyczne oraz doświadczenie pozwalają mi
-            skutecznie realizować projekty związane z rozwijaniem funkcjonalności oraz
+            <br />💡 Posiadam solidne umiejętności programistyczne oraz doświadczenie umożliwiające
+            skuteczną realizację projektów związanych z rozwijaniem funkcjonalności oraz
             dostosowywaniem systemów do aktualnych potrzeb rynkowych.`,
       worklist: [
         {
