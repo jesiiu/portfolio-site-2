@@ -10,8 +10,6 @@
           :key="stackIndex"
           class="stack"
           :class="stack.className"
-          v-motion-fade-visible
-          :visible="{opacity: 1, y: 0}"
         >
           <div class="name">{{ stack.name }}</div>
           <div class="icons">
@@ -36,6 +34,43 @@
   </section>
 </template>
 <style lang="scss">
+@keyframes slide-in-right {
+  0% {
+    transform: translate(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    transform: translate(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+.frontend,
+.database {
+  .icons {
+    animation: slide-in-right ease-out;
+    animation-timeline: view();
+    animation-range: entry 0%exit -100%;
+  }
+}
+
+.backend,
+.servers {
+  .icons {
+    animation: slide-in-left ease-out;
+    animation-timeline: view();
+    animation-range: entry 0%exit -100%;
+  }
+}
 .techstack__container {
   height: 100%;
   padding-top: 5rem;
@@ -63,9 +98,11 @@
   grid-template-rows: repeat(4, 1fr);
   gap: 8rem;
   margin-top: 5rem;
+  position: relative;
 }
 .stack {
   width: 100%;
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -75,7 +112,7 @@
     font-weight: 600;
     font-size: 1.4rem;
   }
-  &.backendstack {
+  &.backend {
     flex-direction: row-reverse;
   }
   &.servers {
@@ -92,7 +129,7 @@
   flex: 3;
   border-right: 1px solid white;
 }
-.backendstack {
+.backend {
   &.name {
     flex: 3;
   }
@@ -100,7 +137,7 @@
     flex: 7;
   }
 }
-.backendstack,
+.backend,
 .servers {
   .name {
     border-right: none;
@@ -116,6 +153,7 @@
   flex: 7;
   position: relative;
 }
+
 .jstscontainer {
   padding: 2rem;
   position: relative;
@@ -266,7 +304,7 @@
       border: unset;
       padding: 0;
     }
-    &.backendstack,
+    &.backend,
     &.servers {
       flex-direction: column;
     }
@@ -305,7 +343,7 @@ export default {
       technologies: [
         {
           name: `Frontend`,
-          className: `frontname`,
+          className: `frontend`,
           techs: [
             {
               id: `vue`,
@@ -331,7 +369,7 @@ export default {
         },
         {
           name: `Backend`,
-          className: `backendstack`,
+          className: `backend`,
           techs: [
             {
               id: `python`,

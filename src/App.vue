@@ -49,6 +49,7 @@ body {
   background: #000d20;
   color: white;
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 #app {

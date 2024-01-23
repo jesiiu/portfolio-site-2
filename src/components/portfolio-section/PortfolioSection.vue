@@ -7,8 +7,6 @@
       <div class="portfolio__elements">
         <div
           class="portfolio__element"
-          v-motion-fade-visible
-          :visible="{ opacity: 1, y: 0 }"
           v-for="(project, projectIndex) in projects"
           :key="projectIndex"
         >
@@ -36,6 +34,19 @@
   </section>
 </template>
 <style lang="scss">
+@keyframes show-up {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+.portfolio__element {
+  animation: show-up ease-out;
+  animation-timeline: view();
+  animation-range-start: entry -200px exit;
+}
 .portfolio__container {
   height: 100%;
   padding-top: 5rem;
