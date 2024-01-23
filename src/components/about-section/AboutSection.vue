@@ -5,11 +5,16 @@ import AboutAction from './AboutAction.vue'
 <template>
   <section class="about__container container-l" id="about">
     <div class="about__content" v-motion-fade :delay="100">
-      <div class="about-elements">
-        <div class="about-photo">
+      <div class="about__elements">
+        <div class="about__photo">
           <img src="../../../src/assets/img/2.webp" />
+          <div class="about__animation-wrapper">
+            <div class="about__animation-line"></div>
+            <div class="about__animation-line"></div>
+          </div>
         </div>
-        <div class="about-description">
+
+        <div class="about__description">
           <div class="description-text">
             <h5>{{ h5 }}</h5>
             <h2>{{ h2 }}</h2>
@@ -33,7 +38,7 @@ import AboutAction from './AboutAction.vue'
   justify-content: center;
   align-items: center;
 }
-.about-elements {
+.about__elements {
   width: 100%;
   height: max-content;
   display: flex;
@@ -41,7 +46,7 @@ import AboutAction from './AboutAction.vue'
   gap: 5rem;
   position: relative;
 }
-.about-photo {
+.about__photo {
   display: block;
   width: 400px;
   height: 500px;
@@ -53,6 +58,46 @@ import AboutAction from './AboutAction.vue'
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+}
+.about__animation-wrapper {
+  padding: 2px 2px 0;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.about__animation-line {
+  will-change: transform;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  animation: animation-line 5s linear infinite;
+  bottom: -100px;
+  left: -80px;
+  background-image: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+}
+// .about__animation-line:nth-child(1) {
+//   animation-delay: 3s;
+// }
+@keyframes animation-line {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  24% {
+    transform: translateY(-590px);
+  }
+  49% {
+    transform: translateX(460px) translateY(-590px) rotate(90deg);
+  }
+  74% {
+    transform: translateY(00px) translateX(460px);
+  }
+  100% {
+    transform: translateX(0px) translateY(000px);
   }
 }
 .description-text {
@@ -85,7 +130,7 @@ import AboutAction from './AboutAction.vue'
     height: 100%;
     padding: 3rem 0rem;
   }
-  .about-elements {
+  .about__elements {
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
@@ -95,7 +140,7 @@ import AboutAction from './AboutAction.vue'
   }
 }
 @media screen and (max-width: 680px) {
-  .about-photo {
+  .about__photo {
     width: 350px;
   }
 }
