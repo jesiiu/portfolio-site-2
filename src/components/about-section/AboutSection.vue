@@ -11,6 +11,7 @@ import AboutAction from './AboutAction.vue'
           <div class="about__animation-wrapper">
             <div class="about__animation-line"></div>
             <div class="about__animation-line"></div>
+            <div class="about__animation-line"></div>
           </div>
         </div>
 
@@ -69,35 +70,56 @@ import AboutAction from './AboutAction.vue'
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  -webkit-mask-composite: xor;
 }
 .about__animation-line {
   will-change: transform;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   position: absolute;
-  animation: animation-line 5s linear infinite;
-  bottom: -100px;
-  left: -80px;
-  background-image: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+  animation: animation-line 10s linear infinite;
+  bottom: -200px;
+  background-image: linear-gradient(to top, #6d2eff00, #0c1532, #c50ebc, #ffc300 99%, #0c153200);
 }
-// .about__animation-line:nth-child(1) {
-//   animation-delay: 3s;
-// }
+.about__animation-line:nth-child(1) {
+  animation-delay: 5s;
+}
 @keyframes animation-line {
   0% {
-    transform: translateY(0px) translateX(0px);
+    transform: matrix(1, 0, 0, 1, -100, 0);
   }
-  24% {
-    transform: translateY(-590px);
+  18% {
+    transform: matrix(1, 0, 0, 1, -100, -450);
+  }
+  21% {
+    transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -100, -500);
+  }
+  30% {
+    transform: matrix(0, 1, -1, 0, 0, -600);
   }
   49% {
-    transform: translateX(460px) translateY(-590px) rotate(90deg);
+    transform: matrix(0, 1, -1, 0, 180, -600);
   }
-  74% {
-    transform: translateY(00px) translateX(460px);
+  51% {
+    transform: matrix(-0.7071, 0.7071, -0.7071, -0.7071, 200, -600);
   }
-  100% {
-    transform: translateX(0px) translateY(000px);
+  60% {
+    transform: matrix(-1, 0, 0, -1, 290, -450);
+  }
+  // 68% {
+  //   transform: matrix(-1, 0, 0, -1, 290, -350);
+  // }
+  // 80% {
+  //   transform: matrix(-1, 0, 0, -1, 290, -250);
+  // }
+  // 90% {
+  //   transform: matrix(-1, 0, 0, -1, 290, -150);
+  // }
+  // 95% {
+  //   transform: matrix(-1, 0, 0, -1, 290, 100);
+  // }
+  90% {
+    transform: matrix(-1, 0, 0, -1, 290, 0);
   }
 }
 .description-text {
