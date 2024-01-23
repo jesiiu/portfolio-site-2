@@ -165,6 +165,10 @@ import AboutAction from './AboutAction.vue'
   .about__photo {
     width: 350px;
   }
+  .about__animation-line {
+    width: 160px;
+    height: 160px;
+  }
 }
 </style>
 
